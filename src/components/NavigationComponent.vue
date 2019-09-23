@@ -95,10 +95,14 @@ export default {
       position: relative;
       padding: 0 13.5px;
       font-size: 1.125em;
-      line-height: 2rem;
+      line-height: 2em;
       text-transform: uppercase;
       @media (max-width: 768px) {
         padding: 0 13.5px 0 0;
+      }
+      @media (max-width: 599px) {
+        font-size: 2em;
+        line-height: inherit;
       }
       & > .border {
         position: absolute;

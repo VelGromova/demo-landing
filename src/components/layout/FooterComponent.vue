@@ -11,24 +11,26 @@
           <social-media-component />
         </div>
         <hr class="footer__divider">
-        <ul class="footer__side-info">
-          <li>
-            <small>Chamber of Commerce: 63464101</small>
-          </li>
-          <li>
-            <small>VAT: NL 8552.47.502.B01</small>
-          </li>
-          <li>
-            <small>
-              <router-link to="/terms-conditions">
-                Terms and conditions
-              </router-link>
-            </small>
-          </li>
-          <li class="copyright-copy">
+        <div class="footer__side-info responsive-flex">
+          <ul class="responsive-flex">
+            <li>
+              <small>Chamber of Commerce: 63464101</small>
+            </li>
+            <li>
+              <small>VAT: NL 8552.47.502.B01</small>
+            </li>
+            <li>
+              <small>
+                <router-link to="/terms-conditions">
+                  Terms and conditions
+                </router-link>
+              </small>
+            </li>
+          </ul>
+          <p class="copyright-copy">
             <small>&#169; 2018 Dept Agency</small>
-          </li>
-        </ul>
+          </p>
+        </div>
       </div>
     </footer>
     <a class="top-btn" @click="scrollToTop">Top</a>
@@ -86,7 +88,7 @@ export default {
   color: var(--color-white);
   padding: 100px 0;
   @media (max-width: 991px) { width: 100%; }
-  @media (max-width: 768px) { padding: 60px 0 40px; }
+  @media (max-width: 768px) { padding: 55px 0 40px; }
   &__content {
     position: relative;
     display: flex;
@@ -101,23 +103,21 @@ export default {
     @media (max-width: 768px) { margin: 40px 0; }
   }
   &__side-info {
-    display: flex;
     justify-content: flex-end;
     font: normal 13px/1 var(--default-font-family);
     color: #808080;
     user-select: none;
-    @media (max-width: 599px) {
-      flex-direction: column;
-    }
-    li {
-      margin-left: 30px;
-      @media (max-width: 599px) {
-        margin-left: 0;
+    ul {
+      li {
+        margin-right: 30px;
+        @media (max-width: 599px) {
+          margin-left: 0;
+        }
       }
     }
     .copyright-copy {
       margin-left: 60px;
-      @media (max-width: 599px) {
+      @media (max-width: 768px) {
         margin-left: 0;
         margin-top: 25px;
       }

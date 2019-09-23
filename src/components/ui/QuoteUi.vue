@@ -19,6 +19,10 @@
     &__copy {
       font-size: 36px;
       line-height: 46px;
+      @media (max-width: 599px) {
+        font-size: 24px;
+        line-height: 30px;
+      }
      }
     &__signature {
       display: inline-block;

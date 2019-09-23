@@ -42,6 +42,19 @@ export default {
       ],
     };
   },
+  methods: {
+    onResize() {
+      if (window.innerWidth <= 599) {
+        this.logos = this.logos.slice(0, 6);
+      }
+    },
+  },
+  created() {
+    window.addEventListener('resize', this.onResize);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize);
+  },
 };
 </script>
 
@@ -71,7 +84,7 @@ export default {
           width: 200px;
         }
         @media (max-width: 599px) {
-          width: 170px;
+          width: 160px;
         }
       }
     }

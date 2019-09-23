@@ -48,10 +48,16 @@ export default {
     &__link {
       padding: 0 13.5px;
       @media (max-width: 599px) {
-        padding: 0;
+        padding: 0 0 20px 0;
       }
       &:last-of-type {
         padding-right: 0;
+      }
+      img {
+        @media (max-width: 599px) {
+          max-height: 20px;
+          width: 22px;
+        }
       }
     }
   }
