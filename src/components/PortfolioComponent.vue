@@ -103,10 +103,12 @@ export default {
 <style lang="scss">
   .portfolio {
     display: grid;
-    /*grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));*/
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 30px;
     border-bottom: 2px solid #DDD;
+    @media (max-width: 599px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
     &__story {
       display: flex;
       flex-direction: column;

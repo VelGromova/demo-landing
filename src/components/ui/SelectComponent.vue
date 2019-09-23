@@ -49,8 +49,8 @@ export default {
     position: relative;
     .ui-select {
       font-family: var(--base-font-family);
-      font-size: 30px;
-      line-height: 32px;
+      font-size: inherit;
+      line-height: inherit;
       padding-right: 15px;
       border: {
         radius: 0;

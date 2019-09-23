@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div ref="menuNav" class="menu">
-    <div class="container">
-      <navigation-component is-vertical="true"/>
+    <div :ref="openRef" class="menu">
+      <div class="container">
+        <navigation-component is-vertical="true"/>
+      </div>
     </div>
-  </div>
-    <a @click="openMenu()" style="color: purple; font-size: 3rem">OPEN</a>
+    <!--<a @click="openMenu()" style="color: purple; font-size: 3rem">OPEN</a>-->
   </div>
 </template>
 
@@ -16,11 +16,14 @@ export default {
   components: {
     NavigationComponent,
   },
+  props: {
+    openRef: null,
+  },
   methods: {
-    openMenu() {
-      this.$refs.menuNav.style.left = '0';
-    },
-  }
+    // openMenu() {
+    //   this.$refs.menuNav.style.left = '0';
+    // },
+  },
 };
 </script>
 

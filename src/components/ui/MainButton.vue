@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import buttonMixin from '../../mixins/buttonMixin';
+import buttonMixin from '@mixins/buttonMixin';
 
 export default {
   mixins: [buttonMixin],
 };
 </script>
 
-<style>
+<style lang="scss">
 .btn-main {
   font-size: 15px;
   line-height: 30px;
@@ -20,8 +20,5 @@ export default {
   background: var(--color-black);
   text-transform: uppercase;
   padding: 8px 40px 12px;
-  @media (max-width: 599px) {
-    width: 100$
-  }
 }
 </style>

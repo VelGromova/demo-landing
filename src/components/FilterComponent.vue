@@ -2,18 +2,20 @@
   <div class="container">
     <section class="filters">
       <div class="filters__result">
-        <label for="workSelect">Show me:&nbsp;</label>
-        <select-component
-          class="filter-input"
-          id="workSelect"
-          :options="workOptions"
-          v-model="selectedWork" />
-        <label for="industrySelect">in&nbsp;</label>
-        <select-component
-          class="filter-input"
-          id="industrySelect"
-          :options="industryOptions"
-          v-model="selectedIndustry" />
+        <div class="filters__result__input">
+          <label for="workSelect">Show me&nbsp;</label>
+          <select-component
+            id="workSelect"
+            :options="workOptions"
+            v-model="selectedWork" />
+        </div>
+        <div class="filters__result__input">
+          <label for="industrySelect">in&nbsp;</label>
+          <select-component
+            id="industrySelect"
+            :options="industryOptions"
+            v-model="selectedIndustry" />
+        </div>
       </div>
     </section>
   </div>
@@ -49,16 +51,29 @@ export default {
 
 <style lang="scss">
   .filters {
-    padding: 60px 0;
+    padding: 40px 0 60px;
+    @media (max-width: 768px) { padding-top: 50px; }
+    @media (max-width: 599px) { padding-top: 120px }
     &__result {
       display: flex;
       justify-content: flex-end;
       color: #A3A3A3;
       font-size: 30px;
       line-height: 32px;
-        .filter-input:first-of-type {
+      @media (max-width: 599px) {
+        flex-direction: column;
+        font-size: 24px;
+      }
+      &__input {
+        display: flex;
+        @media (max-width: 599px) {
+          width: max-content;
+          margin-right: 0;
+        }
+        &:first-of-type {
           margin-right: 24px;
         }
+      }
      }
   }
 </style>
