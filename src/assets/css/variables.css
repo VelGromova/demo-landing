@@ -1,0 +1,19 @@
+:root {
+  --color-black: #0e0e0e;
+  --color-white: #fff;
+  --color-lightgrey: #A3A3A3;
+  --color-grey: #939393;
+  --color-blue: #1A18F7;
+  --color-red: #FF2929;
+
+  --base-font-size: 1rem;
+
+  /*fonts*/
+  --base-font-family: 'Teko', sans-serif;
+  --default-font-family: Arial, sans-serif;
+  /*--font-family-bold: 'Teko-Bold';*/
+  /*--font-family-semibold: 'Teko-SemiBold';*/
+  /*--font-family-light: 'Teko-Regular';*/
+  /*--font-family-medium: 'Teko-Medium';*/
+
+}
