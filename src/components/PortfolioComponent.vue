@@ -1,23 +1,30 @@
 <template>
   <ul class="portfolio">
-    <li class="portfolio__story" v-for="story in portfolio" :key="story.id">
-      <figure class="portfolio__story__img">
-        <img :src="require(`@assets/images/${ story.src }.png`)"
-             :alt="story.name">
-      </figure>
-      <span class="portfolio__story__name">{{ story.name }}</span>
-      <span class="portfolio__story__title">{{ story.title }}</span>
-      <cta-button class="cta-btn">View case</cta-button>
-    </li>
+    <story-component
+      v-for="story in portfolio"
+      :key="story.id"
+      :story-src="story.src"
+      :story-name="story.name"
+      :story-title="story.title"
+    ></story-component>
   </ul>
 </template>
 
 <script>
-import CtaButton from './ui/CtaButton';
+import StoryComponent from './StoryComponent';
 
 export default {
   components: {
-    CtaButton,
+    StoryComponent,
+  },
+  props: {
+    largeStory: {
+      type: Boolean,
+      required: false,
+    },
+    storySrc: '',
+    storyName: '',
+    storyTitle: '',
   },
   data() {
     return {
@@ -27,6 +34,7 @@ export default {
           src: 'bolcom',
           name: 'bol.com',
           title: 'A summer island in the Netherlands',
+          largeStory: true,
         },
         {
           id: 1,
@@ -101,37 +109,5 @@ export default {
 </script>
 
 <style lang="scss">
-  .portfolio {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 30px;
-    border-bottom: 2px solid #DDD;
-    @media (max-width: 599px) {
-      grid-template-columns: repeat(1, 1fr);
-    }
-    &__story {
-      display: flex;
-      flex-direction: column;
-      height: auto;
-      &__img {
-        align-self: flex-start;
-        width: 100%;
-        max-height: 550px;
-        img {
-          width: 100%;
-        }
-      }
-      &__name {
-        text-transform: uppercase;
-        color: var(--color-grey);
-        font: bold 0.94em/1.875em var(--default-font-family);
-      }
-      &__title {
-        font-size: 1.875em;
-        @media (max-width: 991px) {
-          font-size: 1.5em;
-        }
-      }
-    }
-  }
+
 </style>
