@@ -1,7 +1,6 @@
 <template>
   <header class="header">
-    <menu-header />
-    <full-screen-menu />
+    <header-menu />
     <div class="container">
       <div class="header__layout">
         <h1>Work</h1>
@@ -14,23 +13,13 @@
 </template>
 
 <script>
-import MenuHeader from '../MenuHeader';
-import FullScreenMenu from '../FullScreenMenu';
+import HeaderMenu from '../HeaderMenu';
 import MainButton from '../ui/MainButton';
 
 export default {
   components: {
     MainButton,
-    MenuHeader,
-    FullScreenMenu,
-  },
-  methods: {
-    openMenu() {
-      this.$refs.menuNav.style.left = '0';
-    },
-    // closeMenu() {
-    //   this.$refs.menuNav.style.left = '100%';
-    // },
+    HeaderMenu,
   },
 };
 
@@ -43,7 +32,7 @@ export default {
     height: 94vh;
     margin: 20px;
     @media (max-width: 768px) {
-      height: 60vh;
+      height: 65vh;
       margin: 10px;
     }
     @media (max-width: 599px) {
