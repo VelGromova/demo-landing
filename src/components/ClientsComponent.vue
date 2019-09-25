@@ -9,7 +9,8 @@
         <li v-for="logo in logos" :key="logo.id">
           <img class="logo"
                :src="require(`@assets/images/logos/${logo.name}_logo_zwart.svg`)"
-               :alt="logo.name">
+               :alt="logo.name"
+               loading="lazy">
         </li>
       </ul>
     </div>

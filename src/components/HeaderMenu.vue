@@ -2,6 +2,7 @@
   <menu class="menu"
         :class="{ menu__opened: openMenu }">
     <div class="container">
+      <!--TODO create directive to fix header on scroll and change style-->
       <div class="menu__layout">
         <router-link to="/" class="menu__logo">
           <img src="@assets/images/DEPT-logo.svg" alt="DEPT" v-if="openMenu">
@@ -12,7 +13,9 @@
                    @click="toggleMenu"
                    :close-state="false"/>
       </div>
-      <navigation-component v-if="openMenu" is-vertical="true"/>
+      <transition name="fadeInRight" mode="in-out">
+        <navigation-component v-if="openMenu" is-vertical="true"/>
+      </transition>
     </div>
   </menu>
 </template>
@@ -35,7 +38,6 @@ export default {
   methods: {
     toggleMenu() {
       this.openMenu = !this.openMenu;
-      this.closeState = !this.closeState;
     },
   },
 };

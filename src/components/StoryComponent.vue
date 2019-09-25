@@ -5,14 +5,16 @@
   >
     <figure v-if="!isText" class="story__img">
       <a href="#">
-        <img :src="require(`@assets/images/${ storySrc }.png`)"
-             :alt="storyName">
+        <img
+          loading="lazy"
+          :src="require(`@assets/images/${ storySrc }.png`)"
+          :alt="storyName"
+        >
       </a>
     </figure>
     <span class="story__name">{{ storyName }}</span>
     <span class="story__title">{{ storyTitle }}</span>
     <cta-button class="cta-btn">View case</cta-button>
-    <slot></slot>
   </li>
 </template>
 

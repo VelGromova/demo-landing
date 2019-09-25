@@ -54,5 +54,10 @@ export default {
       transform: rotate(-45deg) translate(-9px, 6px);
     }
   }
+  &:before {
+    position: absolute;
+    content: 'Menu';
+    right: 30px;
+  }
 }
 </style>

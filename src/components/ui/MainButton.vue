@@ -20,5 +20,9 @@ export default {
   background: var(--color-black);
   text-transform: uppercase;
   padding: 8px 40px 12px;
+  transition: all .2s ease-in-out;
+  &:hover {
+    transform: scale(1.1)
+  }
 }
 </style>

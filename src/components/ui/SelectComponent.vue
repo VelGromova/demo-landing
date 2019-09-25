@@ -36,11 +36,6 @@ export default {
       this.selectedOption = newValue;
     },
   },
-  methods: {
-    handleChange(e) {
-      this.$emit('handleChange', e.target.value);
-    },
-  },
 };
 </script>
 

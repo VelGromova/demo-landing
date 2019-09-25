@@ -1,15 +1,15 @@
 <template>
-  <div>
+  <div class="container">
     <ul class="portfolio">
-    <story-component
-      v-for="story in portfolio"
-      :key="story.id"
-      :story-src="story.src"
-      :story-name="story.name"
-      :story-title="story.title"
-      :is-large="story.isLarge"
-      :is-text="story.isText"
-    >
+      <story-component
+        v-for="story in portfolio"
+        :key="story.id"
+        :story-src="story.src"
+        :story-name="story.name"
+        :story-title="story.title"
+        :is-large="story.isLarge"
+        :is-text="story.isText"
+      >
     </story-component>
   </ul>
   </div>
@@ -26,7 +26,6 @@ export default {
   },
   data() {
     return {
-      feedback: '<feedback-component />',
       portfolio: [
         {
           id: 0,
@@ -149,6 +148,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 30px;
+    padding-bottom: 60px;
     border-bottom: 2px solid #DDD;
     @media (max-width: 599px) {
       grid-template-columns: repeat(2, 1fr);

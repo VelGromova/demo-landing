@@ -12,7 +12,6 @@
       @input="handleChange">
     </textarea>
     <span class="border"></span>
-    <p class="error-msg">{{ error }}</p>
   </div>
 </template>
 
@@ -22,7 +21,9 @@ import inputMixin from '@mixins/inputMixin';
 export default {
   mixins: [inputMixin],
   props: {
-    value: null,
+    value: {
+      type: String,
+    },
     id: {
       type: String,
       required: true,

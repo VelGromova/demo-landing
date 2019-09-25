@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <home-component/>
+    <transition name="load" mode="out-in" appear>
+      <home-component/>
+    </transition>
   </div>
 </template>
 

@@ -6,12 +6,14 @@
     </label>
     <input
       class="text-input__value"
-      type="text"
+      :type="inputType"
       :id="id"
       :value="value"
       @input="handleChange">
     <span class="border"></span>
-    <p class="error-msg">{{ error }}</p>
+    <p :class="{ error: consistError }">
+      <slot />
+    </p>
   </div>
 </template>
 
@@ -21,7 +23,10 @@ import inputMixin from '@mixins/inputMixin';
 export default {
   mixins: [inputMixin],
   props: {
-    value: null,
+    consistError: true,
+    value: {
+      type: String,
+    },
     id: {
       type: String,
       required: true,
@@ -30,9 +35,9 @@ export default {
       type: String,
       required: true,
     },
-    error: {
+    inputType: {
       type: String,
-      required: false,
+      default: '',
     },
   },
 };
@@ -68,11 +73,12 @@ export default {
       transition: 0.5s;
     }
   }
-  .error-msg {
-    position: absolute;
-    padding-top: 11px;
-    color: var(--color-red);
-    font: normal 0.8em/0.93em var(--default-font-family);
-  }
 }
+.error {
+  position: absolute;
+  padding-top: 11px;
+  color: var(--color-red);
+  font: normal 0.8em/0.93em var(--default-font-family);
+}
+
 </style>

@@ -2,12 +2,7 @@
   <div>
     <header-component />
     <filter-component />
-    <grid-component>
-      <div class="container">
-        <portfolio-component />
-      </div>
-    </grid-component>
-    <feedback-component />
+    <portfolio-component />
     <clients-component />
     <contact-form />
     <footer-component />
@@ -18,7 +13,6 @@
 import HeaderComponent from '../layout/HeaderComponent';
 import FilterComponent from '../FilterComponent';
 import PortfolioComponent from '../PortfolioComponent';
-import GridComponent from '../layout/GridComponent';
 import FeedbackComponent from '../FeedbackComponent';
 import ClientsComponent from '../ClientsComponent';
 import ContactForm from '../ContactForm';
@@ -28,7 +22,6 @@ export default {
   components: {
     HeaderComponent,
     FilterComponent,
-    GridComponent,
     PortfolioComponent,
     FeedbackComponent,
     ClientsComponent,
@@ -37,7 +30,3 @@ export default {
   },
 };
 </script>
-
-<style>
-
-</style>

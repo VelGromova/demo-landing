@@ -2,42 +2,61 @@
   <div class="container">
     <section class="form section-padding responsive-flex">
       <h2 class="form__title">
-        Question? We are here to help!
+        {{ formTitle }}
       </h2>
-      <form ref="form" @submit.prevent="submit">
+      <form @submit.prevent="submit"
+            method="post"
+            novalidate="true"
+            v-if="!isSubmitted">
         <text-input
+          :class="{ 'hasError': $v.name.value.$error }"
           class="form__input"
+          :input-type="'text'"
           :label="name.label"
           :id="name.label"
-          :value="value"
-          @handleChange="handleChange($event)"
-        >
+          v-model="name.value">
+          <p class="error"
+             v-if="!$v.name.value.min">
+            Field must have at least 2 characters.
+            <!--TODO dynamic value of chars-->
+          </p>
         </text-input>
         <text-input
           class="form__input"
+          :input-type="'email'"
           :label="email.label"
           :id="email.label"
-          :error="errorMsg"
-          :value="value"
-          @handleChange="handleChange($event)"
-        ></text-input>
+          v-model="email.value">
+          <p class="error" v-if="!$v.email.value.email">Please, write a valid email.</p>
+        </text-input>
+
         <textarea-input
           class="form__input"
           :label="message.label"
           :id="message.label"
-          :value="value"
-          @handleChange="handleChange($event)"
-        ></textarea-input>
+          v-model="message.value"
+        />
         <submit-button @click="submit">Send</submit-button>
+        <div v-if="$v.name.$error"
+             class="error__title" >
+          Please, fill in the correct details.
+        </div>
       </form>
-      <div class="success" v-if="savingSuccessful">
-        {{ successMsg }}
-      </div>
+      <transition name="load">
+        <div v-if="this.isSubmitted" class="success__title">
+          Thank you, {{ this.name.value}} !<br>
+          We will contact you soon.
+        </div>
+      </transition>
     </section>
   </div>
 </template>
 
 <script>
+// import { debounce } from 'lodash';
+import { validationMixin } from 'vuelidate';
+import { required, email, minLength } from 'vuelidate/lib/validators';
+
 import TextInput from './ui/TextInput';
 import TextareaInput from './ui/TextareaInput';
 import SubmitButton from './ui/SubmitButton';
@@ -48,24 +67,42 @@ export default {
     TextInput,
     SubmitButton,
   },
+  mixins: [validationMixin],
+
   data() {
     return {
+      formTitle: 'Question? We are here to help!',
       name: {
         label: 'name',
+        value: null,
       },
       email: {
         label: 'email',
+        value: null,
       },
       message: {
         label: 'message',
+        value: null,
       },
-      errorMsg: 'This field is required',
-      successMsg: 'Thank you! We will contact you as soon as possible',
+      isSubmitted: false,
     };
   },
+
+  validations: {
+    name: {
+      value: { required, min: minLength(2) },
+    },
+    email: {
+      value: { required, email },
+    },
+  },
+
   methods: {
     submit() {
-      this.$refs.form.submit();
+      this.$v.$touch();
+      if (!this.$v.$invalid) {
+        this.isSubmitted = true;
+      }
     },
   },
 };
@@ -93,7 +130,7 @@ export default {
     @media (max-width: 768px) {
       max-width: 100%;
     }
-    &:not(:last-of-type) {
+    &:nth-child(-n+2) {
       margin-bottom: 78px;
       @media (max-width: 768px) {
         margin-bottom: 28px;
@@ -108,6 +145,7 @@ export default {
     }
     @media (max-width: 599px) {
       grid-template-columns: repeat(1, 1fr);
+      grid-row-gap: 30px;
     }
     .btn-submit {
       margin-top: 30px;
@@ -116,6 +154,22 @@ export default {
         grid-row-start: inherit;
       }
     }
+  }
+  .error__title {
+    position: absolute;
+    bottom: 60px;
+    color: var(--color-red);
+    font: normal 0.8em/0.93em var(--default-font-family);
+    @media(max-width: 599px) {
+      bottom: 30px;
+    }
+  }
+}
+
+.success__title {
+  font: normal 1.2em/1.2em var(--default-font-family);
+  @media(max-width: 599px) {
+    text-align: center;
   }
 }
 </style>
