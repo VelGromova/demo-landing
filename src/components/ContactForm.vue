@@ -26,11 +26,12 @@
           :input-type="'email'"
           :label="email.label"
           :id="email.label"
-          v-model="email.value">
+          v-model="email.value"
+        >
           <p class="error" v-if="!$v.email.value.email">Please, write a valid email.</p>
         </text-input>
-
-        <textarea-input
+        <text-input
+          :is-textarea-input="true"
           class="form__input"
           :label="message.label"
           :id="message.label"
@@ -58,12 +59,10 @@ import { validationMixin } from 'vuelidate';
 import { required, email, minLength } from 'vuelidate/lib/validators';
 
 import TextInput from './ui/TextInput';
-import TextareaInput from './ui/TextareaInput';
 import SubmitButton from './ui/SubmitButton';
 
 export default {
   components: {
-    TextareaInput,
     TextInput,
     SubmitButton,
   },

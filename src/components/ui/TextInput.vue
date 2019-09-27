@@ -4,12 +4,20 @@
       class="text-input__label"
       :for="id">{{ label }}
     </label>
+    <textarea v-if="isTextareaInput"
+      rows="4"
+      class="text-input__value"
+      :id="id"
+      :value="value"
+      @input="handleChange">
+    </textarea>
     <input
       class="text-input__value"
       :type="inputType"
       :id="id"
       :value="value"
-      @input="handleChange">
+      @input="handleChange"
+      v-else>
     <span class="border"></span>
     <p :class="{ error: consistError }">
       <slot />
@@ -23,6 +31,7 @@ import inputMixin from '@mixins/inputMixin';
 export default {
   mixins: [inputMixin],
   props: {
+    isTextareaInput: true,
     consistError: true,
     value: {
       type: String,
