@@ -10,8 +10,9 @@
         :is-large="story.isLarge"
         :is-text="story.isText"
       >
-    </story-component>
-  </ul>
+      </story-component>
+    </ul>
+    <feedback-component />
   </div>
 </template>
 
