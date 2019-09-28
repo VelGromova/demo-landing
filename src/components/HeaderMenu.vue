@@ -11,7 +11,7 @@
         </router-link>
         <hamburger class="menu__button"
                    @click="toggleMenu"
-                   :close-state="false"/>
+                   :close-state="openMenu"/>
       </div>
       <transition name="fadeInRight" mode="in-out">
         <navigation-component v-if="openMenu" is-vertical="true"/>
