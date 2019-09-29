@@ -5,9 +5,7 @@
       <!--TODO create directive to fix header on scroll and change style-->
       <div class="menu__layout">
         <router-link to="/" class="menu__logo">
-          <img src="@assets/images/DEPT-logo.svg" alt="DEPT" v-if="openMenu">
-          <img src="@assets/images/DEPT-logo-black.svg" alt="DEPT" v-else>
-          <!--TODO make svg with fill changing-->
+          <dept-logo/>
         </router-link>
         <hamburger class="menu__button"
                    @click="toggleMenu"
@@ -21,6 +19,7 @@
 </template>
 
 <script>
+import DeptLogo from '@assets/images/DeptLogo';
 import Hamburger from './ui/Hamburger';
 import NavigationComponent from './NavigationComponent';
 
@@ -28,6 +27,7 @@ export default {
   components: {
     Hamburger,
     NavigationComponent,
+    DeptLogo,
   },
   data() {
     return {
@@ -77,8 +77,8 @@ export default {
 
 .menu__opened {
   height: 100%;
-  color: var(--color-white);
   background: var(--color-black);
+  color: var(--color-white);
   overflow-x: hidden;
   transition: 0.5s;
   box-sizing: border-box;
@@ -92,12 +92,12 @@ export default {
     left: 0;
     z-index: 2;
   }
-  a {
+  .nav__link {
     transition: all .15s;
     text-decoration: none;
     font-size: 2em;
+    color: var(--color-white);
     padding: 5px;
-    color: #fff;
     display: block;
     &:hover {
       transition: all .15s;

@@ -4,7 +4,7 @@
       <div class="container">
         <div class="footer__content">
           <router-link to="/" class="footer__content__logo">
-            <img src="@assets/images/DEPT-logo.svg" alt="DEPT">
+            <dept-logo/>
           </router-link>
           <router-view/>
           <navigation-component is-horizontal="true"/>
@@ -38,11 +38,13 @@
 </template>
 
 <script>
+import DeptLogo from '@assets/images/DeptLogo';
 import NavigationComponent from '../NavigationComponent';
 import SocialMediaComponent from '../SocialMediaComponent';
 
 export default {
   components: {
+    DeptLogo,
     NavigationComponent,
     SocialMediaComponent,
   },
