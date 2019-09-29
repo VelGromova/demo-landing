@@ -40,17 +40,20 @@ export default {
       margin: 0;
     }
     &__layout {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: calc(100vh - 25vh);
-      @media (max-width: 768px) { height: calc(100vh - 55vh); }
-      @media (max-width: 768px) { height: calc(100vh - 53vh); }
+      position: relative;
+      height: calc(100vh - 20vh);
+      @media (max-width: 768px) { height: calc(100vh - 43vh); }
+      h1 {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
       .btn-main {
-        display: inline-block;
-        align-self: flex-end;
+        position: absolute;
+        right: 0;
+        bottom: 0;
         @media (max-width: 599px) {
-          align-self: inherit;
+          width: 100%;
         }
       }
     }

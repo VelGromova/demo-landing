@@ -2,7 +2,7 @@
   <menu class="menu"
         :class="{
           menu__opened: openMenu,
-          menu__scrolled: scrollPosition > 50
+          menu__scrolled: scrollPosition > 25
     }">
     <div class="container">
       <div class="menu__layout">
