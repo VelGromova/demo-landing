@@ -1,8 +1,10 @@
 <template>
   <menu class="menu"
-        :class="{ menu__opened: openMenu }">
+        :class="{
+          menu__opened: openMenu,
+          menu__scrolled: scrollPosition > 50
+    }">
     <div class="container">
-      <!--TODO create directive to fix header on scroll and change style-->
       <div class="menu__layout">
         <router-link to="/" class="menu__logo">
           <dept-logo/>
@@ -33,20 +35,35 @@ export default {
     return {
       openMenu: false,
       closeState: false,
+      scrollPosition: null,
     };
   },
   methods: {
     toggleMenu() {
       this.openMenu = !this.openMenu;
     },
+    updateScroll() {
+      this.scrollPosition = window.scrollY;
+    },
+  },
+  mounted() {
+    window.addEventListener('scroll', this.updateScroll);
+  },
+  destroy() {
+    window.removeEventListener('scroll', this.updateScroll);
   },
 };
 </script>
 
 <style lang="scss">
 .menu {
-  padding-top: 28px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  padding-top: 48px;
   background: transparent;
+  z-index: 1;
   @media (max-width: 599px) {
     background: var(--color-white);
     padding: 9px 0;
@@ -82,7 +99,7 @@ export default {
   overflow-x: hidden;
   transition: 0.5s;
   box-sizing: border-box;
-  z-index: 1;
+  z-index: 2;
   @media (max-width: 599px) {
     border: 0;
   }
@@ -102,6 +119,15 @@ export default {
     &:hover {
       transition: all .15s;
     }
+  }
+}
+
+.menu__scrolled {
+  padding-top: 22px;
+  background-color: var(--color-white);
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.3);
+  .menu__layout {
+    border: 0;
   }
 }
 
