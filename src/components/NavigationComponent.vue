@@ -3,8 +3,8 @@
        :class="{ row: isHorizontal, column: isVertical }">
     <router-link
       class="nav__link"
-      v-for="routes in links"
-      :key="routes.id"
+      v-for="(routes, index) in links"
+      :key="index"
       :to="`${routes.page}`">
       {{ routes.text }}
       <span class="border"></span>
@@ -22,32 +22,26 @@ export default {
     return {
       links: [
         {
-          id: 0,
           text: 'work',
           page: '/work',
         },
         {
-          id: 2,
           text: 'service',
           page: '/service',
         },
         {
-          id: 3,
           text: 'stories',
           page: '/stories',
         },
         {
-          id: 4,
           text: 'about',
           page: '/about',
         },
         {
-          id: 5,
           text: 'careers',
           page: '/careers',
         },
         {
-          id: 6,
           text: 'contact',
           page: '/contact',
         },
@@ -115,6 +109,14 @@ export default {
         position: relative;
         opacity: 0;
         transition: 0.5s;
+        @media (max-width: 599px) {
+          top: -5px;
+          border: {
+            top: 9px solid transparent;
+            bottom: 9px solid transparent;
+            left: 9px solid var(--color-white);
+          }
+        }
       }
     }
     .router-link-active {

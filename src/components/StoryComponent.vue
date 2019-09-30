@@ -27,6 +27,11 @@ export default {
     FeedbackComponent,
     CtaButton,
   },
+  data() {
+    return {
+      loaded: false,
+    };
+  },
   props: {
     storySrc: '',
     storyName: '',
@@ -44,6 +49,10 @@ export default {
     grid-column: auto / span 4;
     grid-row: auto / span 4;
     height: auto;
+    transform: translateZ(0);
+    perspective: 1000px;
+    backface-visibility: hidden;
+    transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
     &__img {
       align-self: flex-start;
       width: 100%;

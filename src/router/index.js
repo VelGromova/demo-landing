@@ -38,5 +38,13 @@ export default new VueRouter({
       path: '/terms-conditions/',
       name: 'Terms and Condition',
     },
+    {
+      path: '/partners/',
+      name: 'Partners',
+    },
+    {
+      path: '/vacations',
+      name: 'Vacations',
+    },
   ],
 });

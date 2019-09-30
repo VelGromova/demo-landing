@@ -83,6 +83,13 @@ export default {
     }
   }
 }
+textarea.text-input {
+  &__value {
+    & ~ .border {
+      bottom: 7px;
+    }
+  }
+}
 .error {
   position: absolute;
   padding-top: 11px;
