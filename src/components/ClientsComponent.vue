@@ -18,29 +18,13 @@
 </template>
 
 <script>
+import clients from '@assets/data/clients.json';
+
 export default {
   data() {
     return {
-      description: 'We value a great working relationship with our clients above all else.' +
-      'It’s why they often come to our parties. It’s also why we’re able to challenge and inspire ' +
-      'them to reach for the stars.',
-      logos: [
-        { id: 0, name: 'ABN' },
-        { id: 1, name: 'Adidas' },
-        { id: 2, name: 'Microsoft' },
-        { id: 3, name: 'Mona' },
-        { id: 4, name: 'Nivea' },
-        { id: 5, name: 'NN' },
-        { id: 6, name: 'Oxxio' },
-        { id: 7, name: 'Pathe' },
-        { id: 8, name: 'Tomtom' },
-        { id: 9, name: 'Transavia' },
-        { id: 10, name: 'Triumph' },
-        { id: 11, name: 'Unilever' },
-        { id: 12, name: 'Walibi' },
-        { id: 13, name: 'Zalando' },
-        { id: 14, name: 'Ziggo' },
-      ],
+      description: clients.description,
+      logos: clients.logos,
     };
   },
   methods: {

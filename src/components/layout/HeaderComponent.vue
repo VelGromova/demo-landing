@@ -47,6 +47,15 @@ export default {
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
+        animation: shimming 3s 1;
+      }
+      @keyframes shimming {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
       .btn-main {
         position: absolute;

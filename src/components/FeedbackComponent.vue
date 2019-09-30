@@ -10,19 +10,15 @@
 </template>
 
 <script>
+import feedback from '@assets/data/feedback.json';
 import QuoteUi from './ui/QuoteUi';
 
 export default {
   components: { QuoteUi },
   data() {
     return {
-      review: '“Dept helped us tell our story through a bold new identity and a robust online experience.\n' +
-      'To the tune of 60% growth in online bookings in just one month.”',
-      author: {
-        name: 'Matthijs ten Brink',
-        position: 'CEO',
-        company: 'Transavia',
-      },
+      review: feedback.review,
+      author: feedback.author,
     };
   },
 };
