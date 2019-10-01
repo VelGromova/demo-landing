@@ -1,6 +1,8 @@
 <template>
   <div class="container">
-    <filter-component />
+    <filter-component
+      :story-type="filterType"
+    />
     <ul class="portfolio">
         <story-component
           v-for="story in portfolioBefore"
@@ -44,6 +46,9 @@ export default {
     };
   },
   computed: {
+    filterType() {
+      return this.portfolio.map(story => story.type);
+    },
     portfolioBefore() {
       if (this.portfolio.length > 2) {
         return this.portfolio.slice(0, -2);

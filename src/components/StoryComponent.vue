@@ -58,7 +58,6 @@ export default {
     &__img {
       align-self: flex-start;
       width: 100%;
-      max-height: 550px;
       img {
         width: 100%;
       }
