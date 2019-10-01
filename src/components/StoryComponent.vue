@@ -7,11 +7,12 @@
       <a href="#">
         <img
           loading="lazy"
-          :src="require(`@assets/images/${ storySrc }.png`)"
+          :src="require(`@assets/images/portfolio/${ storySrc }.png`)"
           :alt="storyName"
         >
       </a>
     </figure>
+
     <span class="story__name">{{ storyName }}</span>
     <span class="story__title">{{ storyTitle }}</span>
     <cta-button class="cta-btn">View case</cta-button>
@@ -36,6 +37,7 @@ export default {
     storySrc: '',
     storyName: '',
     storyTitle: '',
+    storyType: '',
     isLarge: true,
     isText: false,
   },

@@ -60,6 +60,14 @@ export default {
     top: 10%;
     width: 100%;
     margin-top: 30px;
+    &:hover {
+      .nav__link {
+        opacity: 0.5;
+      }
+      .router-link-active {
+        opacity: 1;
+      }
+    }
     .nav__link {
       display: block;
       width: max-content;
@@ -71,29 +79,6 @@ export default {
       transition: 0.5s;
       @media (max-width: 599px) {
         font-size: 3.125em;
-      }
-      &:hover > .arrow {
-        opacity: 1;
-        top: 14px;
-        left: 20px;
-        transition: 0.5s;
-        background: salmon;
-      }
-      &:hover:before {
-        opacity: 1;
-        border-left-color: rgba(255, 255, 255, 0.5);
-        transition: 0.5s;
-      }
-      .border {
-        position: absolute;
-        background: rgba(163, 163, 163, 0.5);
-        width: 100%;
-        height: 1px;
-        right: 0;
-        display: block;
-      }
-      &:hover > .border {
-        background: rgba(163, 163, 163, 1);
       }
       &:before {
         display: inline-block;
@@ -117,6 +102,25 @@ export default {
             left: 9px solid var(--color-white);
           }
         }
+      }
+      &:hover {
+        opacity: 1;
+      }
+      &:hover:before {
+        opacity: 1;
+        border-left-color: rgba(255, 255, 255, 0.5);
+        transition: 0.5s;
+      }
+      .border {
+        position: absolute;
+        background: rgba(163, 163, 163, 0.5);
+        width: 100%;
+        height: 1px;
+        right: 0;
+        display: block;
+      }
+      &:hover > .border {
+        background: rgba(163, 163, 163, 1);
       }
     }
     .router-link-active {

@@ -1,24 +1,22 @@
 <template>
-  <div class="container">
-    <section class="filters">
-      <div class="filters__result">
-        <div class="filters__result__input">
-          <label for="workSelect">Show me&nbsp;</label>
-          <select-component
-            id="workSelect"
-            :options="workOptions"
-            v-model="selectedWork" />
-        </div>
-        <div class="filters__result__input">
-          <label for="industrySelect">in&nbsp;</label>
-          <select-component
-            id="industrySelect"
-            :options="industryOptions"
-            v-model="selectedIndustry" />
-        </div>
+  <section class="filters">
+    <div class="filters__result">
+      <div class="filters__result__input">
+        <label for="workSelect">Show me&nbsp;</label>
+        <select-component
+          id="workSelect"
+          :options="workOptions"
+          v-model="selectedWork" />
       </div>
-    </section>
-  </div>
+      <div class="filters__result__input">
+        <label for="industrySelect">in&nbsp;</label>
+        <select-component
+          id="industrySelect"
+          :options="industryOptions"
+          v-model="selectedIndustry" />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
