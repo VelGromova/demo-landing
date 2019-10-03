@@ -47,6 +47,9 @@ export default {
     },
     updateScroll() {
       this.scrollPosition = window.scrollY;
+      if (this.scrollPosition > 25) {
+        setTimeout(() => { this.scrollPosition = window.scrollY; }, 3000);
+      }
     },
   },
   mounted() {
