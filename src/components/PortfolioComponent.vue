@@ -47,7 +47,9 @@ export default {
   },
   computed: {
     filterType() {
-      return this.portfolio.map(story => story.type);
+      let filtered = this.portfolio;
+      filtered = filtered.filter(story => story.type === this.selectedWork);
+      return filtered;
     },
     portfolioBefore() {
       if (this.portfolio.length > 2) {

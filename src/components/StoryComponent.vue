@@ -21,11 +21,9 @@
 
 <script>
 import CtaButton from './ui/CtaButton';
-import FeedbackComponent from './FeedbackComponent';
 
 export default {
   components: {
-    FeedbackComponent,
     CtaButton,
   },
   data() {
