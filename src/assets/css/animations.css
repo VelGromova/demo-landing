@@ -7,6 +7,20 @@
   opacity: 0
 }
 
+.portfolio-move { transition: all 100ms ease-in-out }
+.portfolio-enter-active { transition: all 100ms ease-out }
+
+.portfolio-leave-active {
+  transition: all 100ms ease-in;
+  position: absolute;
+  z-index: 0;
+}
+
+.portfolio-enter,
+.portfolio-leave-to { opacity: 0 }
+.portfolio-enter { transform: scale(0.9) }
+
+
 .fadeInRight-enter-active,
 .fadeInRight-leave-active {
   opacity: 0;

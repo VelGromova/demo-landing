@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <ul class="portfolio">
+    <transition-group name="portfolio" tag="ul" class="portfolio">
         <story-component
           v-for="story in portfolioBefore"
           :key="story.id"
@@ -22,7 +22,7 @@
           :is-large="story.isLarge"
           :is-text="story.isText"
         />
-        <feedback-component class="portfolio__feedback"/>
+        <feedback-component class="portfolio__feedback" key="feedback"/>
         <story-component
           v-for="story in portfolioAfter"
           :key="story.id"
@@ -32,7 +32,7 @@
           :is-large="story.isLarge"
           :is-text="story.isText"
         />
-    </ul>
+    </transition-group>
   </div>
 </template>
 
@@ -85,7 +85,10 @@ export default {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 30px;
+    opacity: 1;
     padding-bottom: 60px;
+    transform-origin: 10% 50%;
+    z-index: 1;
     @media (max-width: 599px) {
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 47px;
