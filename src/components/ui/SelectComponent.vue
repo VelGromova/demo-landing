@@ -4,9 +4,9 @@
       class="ui-select"
       v-model="selectedOption"
       @input="handleChange">
-      <option v-for="(option, name) in options"
+      <option v-for="option in options"
               :value="option"
-              :key="option">{{ name }}</option>
+              :key="option">{{ option }}</option>
     </select>
   </div>
 </template>
@@ -24,7 +24,7 @@ export default {
   props: {
     value: null,
     options: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },

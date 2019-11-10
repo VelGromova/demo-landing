@@ -1,8 +1,17 @@
 <template>
   <div class="container">
-    <filter-component
-      :story-type="filterType"
-    />
+    <div class="filters">
+      <div class="filters__result">
+        <div class="filters__result__input">
+          <label for="workSelect">Show me&nbsp;</label>
+          <select-component
+            id="workSelect"
+            :options="filterNames"
+            v-model="selectedWork"
+          />
+        </div>
+      </div>
+    </div>
     <ul class="portfolio">
         <story-component
           v-for="story in portfolioBefore"
@@ -29,37 +38,46 @@
 
 <script>
 import portfolio from '@assets/data/portfolio.json';
-
-import FilterComponent from './FilterComponent';
 import StoryComponent from './StoryComponent';
 import FeedbackComponent from './FeedbackComponent';
+import SelectComponent from './ui/SelectComponent';
 
 export default {
   components: {
     FeedbackComponent,
-    FilterComponent,
     StoryComponent,
+    SelectComponent,
   },
   data() {
     return {
       portfolio,
+      selectedWork: 'all',
+      selectedIndustry: 'all',
     };
   },
   computed: {
-    filterType() {
-      let filtered = this.portfolio;
-      filtered = filtered.filter(story => story.type === this.selectedWork);
-      return filtered;
+    filterNames() {
+      const getType = this.portfolio.map(story => story.type);
+      return (['all', ...new Set(getType)]);
+    },
+    filteredPortfolio() {
+      if (this.selectedWork === 'popular') {
+        return this.portfolio.filter(story => story.type === 'popular');
+      }
+      if (this.selectedWork === 'latest') {
+        return this.portfolio.filter(story => story.type === 'latest');
+      }
+      return this.portfolio.filter(story => story.type);
     },
     portfolioBefore() {
-      if (this.portfolio.length > 2) {
-        return this.portfolio.slice(0, -2);
+      if (this.filteredPortfolio.length > 2) {
+        return this.filteredPortfolio.slice(0, -2);
       }
-      return this.portfolio;
+      return this.filteredPortfolio;
     },
     portfolioAfter() {
-      if (this.portfolio.length > 2) {
-        return this.portfolio.slice(-2);
+      if (this.filteredPortfolio.length > 2) {
+        return this.filteredPortfolio.slice(-2);
       }
       return [];
     },
@@ -73,13 +91,38 @@ export default {
     grid-template-columns: repeat(8, 1fr);
     grid-gap: 30px;
     padding-bottom: 60px;
-    border-bottom: 2px solid #DDD;
     @media (max-width: 599px) {
       grid-template-columns: repeat(2, 1fr);
       grid-gap: 47px;
     }
     &__feedback {
       grid-column: auto / span 8;
+    }
+  }
+  .filters {
+    padding: 40px 0 60px;
+    @media (max-width: 768px) { padding-top: 50px; }
+    @media (max-width: 599px) { padding-top: 120px }
+    &__result {
+      display: flex;
+      justify-content: flex-end;
+      color: #A3A3A3;
+      font-size: 30px;
+      line-height: 32px;
+      @media (max-width: 599px) {
+        flex-direction: column;
+        font-size: 24px;
+      }
+      &__input {
+        display: flex;
+        @media (max-width: 599px) {
+          width: max-content;
+          margin-right: 0;
+        }
+        &:first-of-type {
+          margin-right: 24px;
+        }
+      }
     }
   }
 </style>
