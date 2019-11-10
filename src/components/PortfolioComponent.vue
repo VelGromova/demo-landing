@@ -61,13 +61,8 @@ export default {
       return (['all', ...new Set(getType)]);
     },
     filteredPortfolio() {
-      if (this.selectedWork === 'popular') {
-        return this.portfolio.filter(story => story.type === 'popular');
-      }
-      if (this.selectedWork === 'latest') {
-        return this.portfolio.filter(story => story.type === 'latest');
-      }
-      return this.portfolio.filter(story => story.type);
+      const filtered = this.portfolio.filter(story => this.selectedWork === story.type);
+      return filtered.length ? filtered : this.portfolio;
     },
     portfolioBefore() {
       if (this.filteredPortfolio.length > 2) {
