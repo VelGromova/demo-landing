@@ -6,9 +6,16 @@
           <label for="workSelect">Show me&nbsp;</label>
           <select-component
             id="workSelect"
-            :options="filterNames"
+            :options="filterTypeNames"
             v-model="selectedWork"
           />
+        </div>
+        <div class="filters__result__input">
+          <label for="industrySelect">in&nbsp;</label>
+          <select-component
+          id="industrySelect"
+          :options="filterIndustryNames"
+          v-model="selectedIndustry" />
         </div>
       </div>
     </div>
@@ -51,18 +58,30 @@ export default {
   data() {
     return {
       portfolio,
-      selectedWork: 'all',
-      selectedIndustry: 'all',
+      selectedWork: 'all types',
+      selectedIndustry: 'all industries',
     };
   },
   computed: {
-    filterNames() {
+    filterTypeNames() {
       const getType = this.portfolio.map(story => story.type);
-      return (['all', ...new Set(getType)]);
+      return (['all types', ...new Set(getType)]);
+    },
+    filterIndustryNames() {
+      const getIndustry = this.portfolio.map(story => story.industry);
+      return (['all industries', ...new Set(getIndustry)]);
     },
     filteredPortfolio() {
-      const filtered = this.portfolio.filter(story => this.selectedWork === story.type);
-      return filtered.length ? filtered : this.portfolio;
+      const initialPortfolio = this.portfolio;
+      let filtered = this.portfolio;
+
+      if (this.selectedWork !== 'all types') {
+        filtered = filtered.filter(story => this.selectedWork === story.type);
+      }
+      if (this.selectedIndustry !== 'all industries') {
+        filtered = filtered.filter(story => this.selectedIndustry === story.industry);
+      }
+      return filtered.length ? filtered : initialPortfolio;
     },
     portfolioBefore() {
       if (this.filteredPortfolio.length > 2) {
@@ -113,6 +132,9 @@ export default {
       }
       &__input {
         display: flex;
+        label {
+          margin-right: 5px;
+        }
         @media (max-width: 599px) {
           width: max-content;
           margin-right: 0;

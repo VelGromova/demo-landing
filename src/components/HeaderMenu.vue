@@ -15,7 +15,7 @@
                        @click="toggleMenu"
                        :close-state="openMenu"/>
           </div>
-          <transition name="fadeInRight" mode="in-out">
+          <transition name="menu" mode="in-out">
             <navigation-component v-if="openMenu" is-vertical="true"/>
           </transition>
       </div>
@@ -120,14 +120,14 @@ export default {
     overflow: scroll;
     background: var(--color-black);
     color: var(--color-white);
-    transition: 0.5s;
+    transition: 0.5s ;
     box-sizing: border-box;
     z-index: 2;
     @media (max-width: 599px) {
       border: 0;
     }
     ul {
-      transition: all 0s;
+      transition: all 0s ease-in;
       position: relative;
       left: 0;
       z-index: 2;
@@ -142,7 +142,8 @@ export default {
       transition: all .15s;
       text-decoration: none;
       color: var(--color-white);
-      padding: 7px;
+      line-height: 1;
+      padding: 8px 6px 0;
       &:hover {
         transition: all .15s;
       }

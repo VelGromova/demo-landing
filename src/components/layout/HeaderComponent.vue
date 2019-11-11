@@ -31,6 +31,9 @@ export default {
     background: url('../../assets/images/header-video.png') center no-repeat/cover;
     height: 94vh;
     margin: 20px;
+    @media (max-width: 991px) {
+      background-position-x: 80%;
+    }
     @media (max-width: 768px) {
       height: 65vh;
       margin: 10px;

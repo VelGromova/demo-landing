@@ -4,28 +4,32 @@
     "src": "bolcom",
     "name": "bol.com",
     "title": "A summer island in the Netherlands",
-    "type": "popular"
+    "type": "popular",
+    "industry": "entertainment"
   },
   {
     "id": 1,
     "src": "kempen",
     "name": "kempen",
     "title": "Not some average banking website",
-    "type": "latest"
+    "type": "latest",
+    "industry": "finance"
   },
   {
     "id": 2,
     "src": "philips",
     "name": "Philips",
     "title": "Beautiful design meets innovative technology",
-    "type": "latest"
+    "type": "latest",
+    "industry": "entertainment"
   },
   {
     "id": 3,
     "src": "gemeentemuseum",
     "name": "Gemeentemuseum",
     "title": "A 100 years of Mondriaan & De Stijl",
-    "type": "popular"
+    "type": "popular",
+    "industry": "art"
   },
   {
     "id": 4,
@@ -33,42 +37,48 @@
     "src": "florensis",
     "title": "Rethinking the entire online ecosystem",
     "type": "popular",
-    "isLarge": true
+    "isLarge": true,
+    "industry": "art"
   },
   {
     "id": 5,
     "name": "Microsoft",
     "title": "Tapping into Ireland’s unique gaming culture and bringing a fresh flavour to their Xbox social media channels",
     "type": "latest",
-    "isText": true
+    "isText": true,
+    "industry": "entertainment"
   },
   {
     "id": 6,
     "name": "O’NEILL",
     "title": "Integrating existing content into O’Neill’s new e-commerce platform",
     "type": "popular",
-    "isText": true
+    "isText": true,
+    "industry": "finance"
   },
   {
     "id": 7,
     "src": "lightning",
     "name": "Be Lighting",
     "title": "Delivering clarity on a global scale",
-    "type": "latest"
+    "type": "latest",
+    "industry": "entertainment"
   },
   {
     "id": 8,
     "src": "tui",
     "name": "TUI",
     "title": "Swipe to find your next holiday destination",
-    "type": "popular"
+    "type": "popular",
+    "industry": "travel"
   },
   {
     "id": 9,
     "name": "Bultins",
     "title": "Enhancing customer experience for personalised holiday planning using real time data",
     "type": "popular",
-    "isText": true
+    "isText": true,
+    "industry": "travel"
   },
   {
     "id": 10,
@@ -76,55 +86,63 @@
     "src": "florensis",
     "title": "Rethinking the entire online ecosystem",
     "type": "latest",
-    "isLarge": true
+    "isLarge": true,
+    "industry": "art"
   },
   {
     "id": 11,
     "name": "Vacanselect",
     "title": "Predicting booking behavior for holidays with smart data, voice search and machine learning",
     "type": "latest",
-    "isText": true
+    "isText": true,
+    "industry": "travel"
   },
   {
     "id": 12,
     "src": "chocomel",
     "name": "Chocomel",
     "title": "A campaign for the limited edition letter packs",
-    "type": "latest"
+    "type": "latest",
+    "industry": "entertainment"
   },
   {
     "id": 13,
     "src": "jbl",
     "name": "JBL",
     "title": "Live like a champion with Jerome Booteng",
-    "type": "popular"
+    "type": "popular",
+    "industry": "sport"
   },
   {
     "id": 14,
     "src": "zalando",
     "name": "zalando",
     "title": "Innovative SEO and content strategy for Zalando",
-    "type": "popular"
+    "type": "popular",
+    "industry": "finance"
   },
   {
     "id": 15,
     "src": "koninklijke-bibliotheek",
     "name": "Koninklijke Bibliotheek",
     "title": "The search for the most influential book ever",
-    "type": "popular"
+    "type": "popular",
+    "industry": "art"
   },
   {
     "id": 16,
     "src": "liberty-global",
     "name": "Liberty Global",
     "title": "Delivering complex commerce solutions",
-    "type": "latest"
+    "type": "latest",
+    "industry": "finance"
   },
   {
     "id": 17,
     "src": "arla",
     "name": "Arla",
     "title": "Get some protein, buddy",
-    "type": "popular"
+    "type": "popular",
+    "industry": "sport"
   }
 ]

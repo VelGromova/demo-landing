@@ -21,15 +21,15 @@
 .portfolio-enter { transform: scale(0.9) }
 
 
-.fadeInRight-enter-active,
-.fadeInRight-leave-active {
+.menu-enter-active,
+.menu-leave-active {
   opacity: 0;
   -webkit-transform: translate3d(2000px, 0, 0);
   transform: translate3d(2000px, 0, 0)
 }
 
-.fadeInRight-enter-to,
-.fadeInRight-leave-to {
+.menu-enter-to,
+.menu-leave-to {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
